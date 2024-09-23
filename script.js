@@ -434,7 +434,7 @@ const menCandidates = [
 ];
 
 // Contraseña para ver los resultados
-const adminPassword = "votaciones123";
+const adminPassword = "472448JVA";
 
 // Ocultar loader y mostrar contenido cuando la página carga completamente
 window.addEventListener('load', function() {
