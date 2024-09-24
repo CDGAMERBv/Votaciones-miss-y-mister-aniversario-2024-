@@ -405,6 +405,7 @@ const dniList = {
 "61568859": "JOSE DIEGO RUBIO ISUIZA",
 "60684869": "DAYANA RUBIO SINARAHUA",
 "61535761": "ESWIN ORLANDO VICENTE HUAYAMA"
+"76752150": "Alan Pérez"
     // Agrega más DNI y nombres según sea necesario
 };
 
