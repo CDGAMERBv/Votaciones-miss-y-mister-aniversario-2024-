@@ -404,8 +404,8 @@ const dniList = {
 "72346222": "SHAROL NICOL ROJAS MOZOMBITE",
 "61568859": "JOSE DIEGO RUBIO ISUIZA",
 "60684869": "DAYANA RUBIO SINARAHUA",
-"61535761": "ESWIN ORLANDO VICENTE HUAYAMA",
-"76752150": "Alan Pérez"
+"61535761": "ESWIN ORLANDO VICENTE HUAYAMA"
+
     // Agrega más DNI y nombres según sea necesario
 };
 
@@ -494,6 +494,13 @@ document.getElementById('votingForm').addEventListener('submit', function(event)
     const dni = document.getElementById('dni').value;
     const name = document.getElementById('name').value;
 
+    // Verificar si ya se ha votado con este DNI
+    if (hasAlreadyVoted(dni)) {
+        document.getElementById('result').innerText = 'Este DNI ya ha votado.';
+        document.getElementById('result').style.display = 'block';
+        return;
+    }
+
     if (womanVote && manVote && validateDNI(dni)) {
         saveVote(dni, name, womanVote.value, manVote.value);
     } else {
@@ -504,6 +511,11 @@ document.getElementById('votingForm').addEventListener('submit', function(event)
 
 function validateDNI(dni) {
     return dniList.hasOwnProperty(dni);
+}
+
+function hasAlreadyVoted(dni) {
+    let votes = JSON.parse(localStorage.getItem('votes')) || [];
+    return votes.some(vote => vote.dni === dni);
 }
 
 function saveVote(dni, name, womanVote, manVote) {
